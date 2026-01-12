@@ -38,7 +38,7 @@ export default function Sidebar() {
 
       <nav className="flex-1 p-3 space-y-1">
         <NavItem icon={LayoutDashboard} label="Dashboard" href="/bcor/dashboard" />
-        <NavItem icon={BookText} label="Master" href="/bcor/master" />
+        <NavItem icon={BookText} label="Master" href="/bcor/masters" />
         <NavItem icon={ChartNoAxesCombined} label="Sales" href="/bcor/sales" />
         <NavItem icon={ShoppingCart} label="Purchase" href="/bcor/purchase" />
         <NavItem icon={ChartCandlestick} label="Stock" href="/bcor/stock" />
