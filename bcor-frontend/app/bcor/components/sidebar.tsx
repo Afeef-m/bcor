@@ -5,8 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/app/store/hooks";
-import { logout } from "@/app/store/authSlice";
+
 
 
 type NavItemProps = {
@@ -33,13 +32,6 @@ const NavItem = ({ icon: Icon, label, href }: NavItemProps) => {
 };
 
 export default function Sidebar() {
-  const dispatch = useAppDispatch();
-  const router = useRouter();
-  
-  const handleLogout = () => {
-  dispatch(logout());
-  router.replace("/auth/login");
-};
 
   return (
     <aside className="w-64 bg-[#252527] text-white flex flex-col">
@@ -61,7 +53,7 @@ export default function Sidebar() {
 
       <nav className="p-3 border-t border-[#1f1f1f] space-y-1">
         <button
-        onClick={handleLogout}
+        // onClick={handleLogout}
          className="flex w-full items-center gap-3 px-3 py-2 rounded hover:bg-[#1a1a1a] text-sm text-red-400">
           <Power size={18} className="text-red-500" />
           Power Off

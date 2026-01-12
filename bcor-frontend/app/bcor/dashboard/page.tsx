@@ -1,6 +1,5 @@
 "use client";
 
-import { useAppSelector } from "@/app/store/hooks";
 import {
   UserCog,
   Users,
@@ -40,12 +39,6 @@ const MasterCard = ({ label, icon: Icon, href,color }: MasterCardProps) => {
 };
 
 export default function Dashboard() {
-  const isAuth = useAppSelector((s) => s.auth.isAuthenticated);
-  const router = useRouter();
-   useEffect(() => {
-    if (!isAuth) router.replace("/auth/login");
-  }, [isAuth]);
-  if (!isAuth) return null;
 
   return (
     <div className="space-y-6">
