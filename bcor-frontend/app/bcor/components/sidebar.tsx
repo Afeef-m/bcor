@@ -4,10 +4,6 @@ import { BookText, ChartCandlestick, ChartNoAxesCombined, Landmark,LayoutDashboa
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useRouter } from "next/navigation";
-
-
-
 type NavItemProps = {
   icon: LucideIcon;
   label: string;
