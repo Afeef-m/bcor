@@ -1,23 +1,7 @@
 "use client";
 
-import {
-  UserCog,
-  Users,
-  Package,
-  Factory,
-  Layers,
-  Shapes,
-  Boxes,
-  CalendarClock,
-  FileText,
-  Map,
-  MapPin,
-  Mailbox,
-  Briefcase,
-} from "lucide-react";
+import { UserCog, Users, Package, Factory, Layers, Shapes, Boxes, CalendarClock, FileText, Map, MapPin, Mailbox, Briefcase,} from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 type MasterCardProps = {
   label: string;
@@ -41,7 +25,7 @@ const MasterCard = ({ label, icon: Icon, href,color }: MasterCardProps) => {
 export default function Dashboard() {
 
   return (
-    <div className="space-y-6">
+    <main className="space-y-6">
 
       <h1 className="text-xl font-semibold text-gray-800">Master</h1>
 
@@ -69,6 +53,6 @@ export default function Dashboard() {
         <MasterCard label="Professional Master" icon={Briefcase} color="text-rose-600" href="/bcor/master/professionals" />
 
       </div>
-    </div>
+    </main>
   );
 }
