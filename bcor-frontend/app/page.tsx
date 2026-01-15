@@ -2,12 +2,12 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect("/bcor/auth/login");
+  redirect("/bcor/dashboard");
 }
 
 
 // import { redirect } from "next/navigation";
 
 // export default function Home() {
-//   redirect("/auth/login");
+//   redirect("/bcor/auth/login");
 // }

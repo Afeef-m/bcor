@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import {
   BookText,
   ChartCandlestick,
@@ -107,17 +107,9 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           />
         </div>
         <nav className="flex-1 p-2 space-y-1">
-          <NavItem
-            icon={LayoutDashboard}
-            label="Dashboard"
-            href="/bcor/dashboard"
-          />
+          <NavItem icon={LayoutDashboard} label="Dashboard" href="/bcor/dashboard"/>
           <NavItem icon={BookText} label="Master" href="/bcor/masters" />
-          <NavItem
-            icon={ChartNoAxesCombined}
-            label="Sales"
-            href="/bcor/sales"
-          />
+          <NavItem icon={ChartNoAxesCombined} label="Sales" href="/bcor/sales"/>
           <NavItem icon={ShoppingCart} label="Purchase" href="/bcor/purchase" />
           <NavItem icon={ChartCandlestick} label="Stock" href="/bcor/stock" />
           <NavItem icon={Landmark} label="Accounts" href="/bcor/accounts" />

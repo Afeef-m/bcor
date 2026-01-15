@@ -1,58 +1,82 @@
-"use client";
+import {
+  DollarSign,
+  ShoppingCart,
+  Boxes,
+  Users,
+  Package,
+  Landmark,
+} from "lucide-react";
+import DashTable from "../components/dashTable";
 
-import { UserCog, Users, Package, Factory, Layers, Shapes, Boxes, CalendarClock, FileText, Map, MapPin, Mailbox, Briefcase,} from "lucide-react";
-import Link from "next/link";
-
-type MasterCardProps = {
-  label: string;
-  icon: React.ElementType;
-  href: string;
-  color?: string;
-};
-
-const MasterCard = ({ label, icon: Icon, href,color }: MasterCardProps) => {
-  return (
-    <Link
-      href={href}
-      className="flex items-center gap-4 bg-white rounded-lg shadow-sm border border-gray-200 p-5 hover:shadow-md transition"
-    >
-       <Icon size={32} className={color} />
-      <span className="font-medium text-gray-800">{label}</span>
-    </Link>
-  );
-};
+const stats = [
+  {
+    title: "Sales",
+    value: "5,485,894,199.43",
+    icon: DollarSign,
+    bg: "from-blue-400 to-teal-500",
+  },
+  {
+    title: "Purchase",
+    value: "33,585,133.92",
+    icon: ShoppingCart,
+    bg: "from-red-400 to-orange-500",
+  },
+  {
+    title: "Stock",
+    value: "43,252,091,786.80",
+    icon: Boxes,
+    bg: "from-green-400 to-emerald-500",
+  },
+  {
+    title: "Cash In Hand",
+    value: "3,575,698,300.97",
+    icon: Users,
+    bg: "from-green-500 to-green-700",
+  },
+  {
+    title: "Total Quantity",
+    value: "106,317,628.07",
+    icon: Package,
+    bg: "from-indigo-400 to-violet-500",
+  },
+  {
+    title: "Cash In Bank",
+    value: "-1,953,720,176.98",
+    icon: Landmark,
+    bg: "from-red-500 to-red-700",
+  },
+];
 
 export default function Dashboard() {
-
   return (
-    <main className="space-y-6">
+    <section className="p-6 space-y-6">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {stats.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className={`bg-linear-to-r ${item.bg} text-white rounded-xl p-5 shadow-lg`}
+            >
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-sm opacity-90">{item.title}</h3>
+                  <p className="text-xl font-bold mt-1">{item.value}</p>
+                </div>
 
-      <h1 className="text-xl font-semibold text-gray-800">Master</h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <MasterCard label="Role Master" icon={UserCog} color="text-blue-600" href="/bcor/master/roles" />
-        <MasterCard label="User Master" icon={Users} color="text-blue-500" href="/bcor/master/users" />
-
-        <MasterCard label="Product Master" icon={Package} color="text-amber-600" href="/bcor/master/products" />
-        <MasterCard label="Manufacturer Master" icon={Factory} color="text-amber-500" href="/bcor/master/manufacturers" />
-
-        <MasterCard label="Group Master" icon={Layers} color="text-indigo-600" href="/bcor/master/groups" />
-        <MasterCard label="Category Master" icon={Shapes} color="text-indigo-500" href="/bcor/master/categories" />
-        <MasterCard label="Pack Master" icon={Boxes} color="text-indigo-400" href="/bcor/master/packs" />
-
-        <MasterCard label="Schedule Master" icon={CalendarClock} color="text-cyan-600" href="/bcor/master/schedules" />
-
-        <MasterCard label="Content Master" icon={FileText} color="text-purple-600" href="/bcor/master/content" />
-
-        <MasterCard label="State Master" icon={Map} color="text-green-600" href="/bcor/master/states" />
-        <MasterCard label="District Master" icon={MapPin} color="text-green-500" href="/bcor/master/districts" />
-        <MasterCard label="Pincode Master" icon={Mailbox} color="text-green-400" href="/bcor/master/pincodes" />
-        <MasterCard label="Area Master" icon={MapPin} color="text-green-300" href="/bcor/master/areas" />
-
-        <MasterCard label="Professional Master" icon={Briefcase} color="text-rose-600" href="/bcor/master/professionals" />
-
+                <div className="w-12 h-12 mt-7 rounded-full bg-white/20 flex items-center justify-center">
+                  <Icon size={26} className="text-white" />
+                </div>
+              </div>
+              <button className="text-xs hover:underline mt-4 opacity-90 hover:opacity-100 cursor-pointer">
+                View Details
+              </button>
+            </div>
+          );
+        })}
       </div>
-    </main>
+      <DashTable />
+      </section>
   );
 }
